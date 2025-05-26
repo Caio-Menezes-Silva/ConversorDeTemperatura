@@ -1,37 +1,26 @@
-﻿using Microsoft.VisualBasic;
-using System;
+﻿using System;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace ConversorDeTemperatura
 {
     internal class ConversorDeTemperatura
     {
-        private double _temperaturaCelsius;
-        private double _temperaturaFahrenheit;
-        public double TemperaturaCelsius { get { return _temperaturaCelsius; } set { _temperaturaCelsius = value; } }
-        public double TemperaturaFahrenheit { get { return _temperaturaFahrenheit; } set { _temperaturaFahrenheit = value; } }
+        public double TemperaturaCelsius { get; set; }
+        public double TemperaturaFahrenheit { get; set; }
 
-        public ConversorDeTemperatura(double TemperaturaCelsius, double TemperaturaFahrenheit)
+
+        public static double CelsiusParaFahrenheit(double input)
         {
-             _temperaturaCelsius = TemperaturaCelsius ;
-             _temperaturaFahrenheit = TemperaturaFahrenheit;
+            double fahrenheit = (input * 9.0 / 5.0) + 32;
+            return fahrenheit;
         }
 
-        public ConversorDeTemperatura()
+        public static double FahrenheitParaCelsius(double input)
         {
+            double celsius = (input - 32) * 5.0 / 9.0;
+
+            return celsius; 
         }
-
-        public double CelsiusParaFahrenheit(double temperaturaCelsius)
-        {   TemperaturaFahrenheit = (temperaturaCelsius * 9 / 5) + 32;
-
-            return TemperaturaFahrenheit;
-        }
-
-        public double FahrenheitParaCelsius(double temperaturaFahrenheit)
-        {
-            return TemperaturaCelsius = (temperaturaFahrenheit - 32) * 5 / 9;
-        }
-
-
     }
 }
